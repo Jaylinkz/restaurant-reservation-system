@@ -8,12 +8,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class ="flex  m-2 p-2">
-                <a href ="{{route('')}}"
+                <a href ="{{route('Admin.admin.index')}}"
                class="px-4 py-2   text-gray-700 bg-white  dark:text-gray-200 dark:bg-gray-800 rounded-lg">Back</a>
             </div>
             <div class="p-2 m-2 bg-slate-100 rounded" >
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form Method="POST" action="{{route("Admin.lecturers.store")}}" enctype="multipart/form-data">
+                    <form Method="POST" action="{{route("Admin.admin.store")}}" enctype="multipart/form-data">
                         @csrf
                       <div class="sm:col-span-6">
                         <label for="title" class="block text-sm font-medium text-gray-700">Name </label>

@@ -24,13 +24,13 @@ class LecturerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            $request->validate([
+            [
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'confirmed'],
-                'employee_id' => ['required', 'string', 'max:15', 'unique:users'], 
+                'password' => ['required'],
+                'employee_id' => ['required', 'max:15', 'unique:users'], 
                 'image'=>['required','image'],
-                ])//
+                ]//
         ];
     }
 }

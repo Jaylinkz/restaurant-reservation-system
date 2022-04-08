@@ -15,7 +15,8 @@ class lecturers extends Controller
      */
     public function index()
     {
-       return view("Admin.index"); //
+      $Users = User::all();
+      return view('Admin.index',compact('Users')); //
     }
 
     /**
@@ -25,7 +26,7 @@ class lecturers extends Controller
      */
     public function create()
     {
-       return view("Admin.create"); //
+       return view('Admin.create'); //
     }
 
     /**
@@ -36,7 +37,7 @@ class lecturers extends Controller
      */
     public function store(LecturerStoreRequest $request)
     {
-        $image = $request->file('image')->store('public/categories');
+        $image = $request->file('image')->store('public');
         User::create([
         'name'=>$request->name,
         'email'=>$request->email,
@@ -44,7 +45,8 @@ class lecturers extends Controller
         'employee_id'=>$request->employee_id,
         'image'=>$image,
 
-        ]);// //
+        ]);
+        return to_route("Admin.index");// //
     }
 
     /**

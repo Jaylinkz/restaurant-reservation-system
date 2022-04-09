@@ -28,7 +28,7 @@ class ResultController extends Controller
 
  public function import()
  {
-     Excel::import(new resultsImport,request()->file('file')->store('temp'));
-     return back();
+     Excel::import(new resultsImport,request()->file('file'));
+     return back()->withStatus('Exel file imported successfully');
  }
 }

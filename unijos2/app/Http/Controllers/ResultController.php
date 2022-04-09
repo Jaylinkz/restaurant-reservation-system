@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\resultsExport;
 use App\Imports\resultsImport;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Models\result;
+use Auth;
+
 
 class ResultController extends Controller
 {
  public function fileexport(){
-     $num = Auth::user()->matric_no;
-     $users = result::Where('matric_no',$num)->get();
+    //$num = Auth::user()->matric_no;Where('matric_no',$num)
+     $users = result::get();
      return view('Student.results',compact('users'));
  }   
  public function fileimport()
@@ -21,12 +23,12 @@ class ResultController extends Controller
  }
  public function export()
  {
-     return Exel::download(new resultsExport, 'results.xlsx');
+     return Excel::download(new resultsExport, 'results.xlsx');
  }
 
- public function import(Request $request)
+ public function import()
  {
-     Exel::import(new resultsImport,$request()->file('file')->store('temp'));
+     Excel::import(new resultsImport,request()->file('file')->store('temp'));
      return back();
  }
 }

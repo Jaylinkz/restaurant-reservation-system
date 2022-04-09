@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Foundation\Console\RouteCacheCommand;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\LecturersController;
@@ -15,7 +15,9 @@ use App\Http\Controllers\ResultController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 Route::get('/', function () {
     return view('welcome');
 });

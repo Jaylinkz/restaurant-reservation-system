@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('CA');
             $table->string('Exam_score');
             $table->string('grade');
-            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

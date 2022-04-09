@@ -1,11 +1,11 @@
 <?php
+
 namespace App\Imports;
 
 use App\Models\result;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class resultsImport implements ToModel,WithHeadings
+class resultsImport implements ToModel
 {
     /**
     * @param array $row

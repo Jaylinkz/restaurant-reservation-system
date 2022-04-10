@@ -17,15 +17,17 @@ class ResultController extends Controller
      $users = result::get();
      return view('Student.results',compact('users'));
  }   
+
  public function fileimport()
  {
      return view('Lecturer.results');
  }
+ //file export method that makes each students results downloadable
  public function export()
  {
      return Excel::download(new resultsExport, 'results.xlsx');
  }
-
+ //file import method for importing results into the database
  public function import()
  {
      Excel::import(new resultsImport,request()->file('file'));

@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\result;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class resultsImport implements ToModel
 {
@@ -14,6 +15,7 @@ class resultsImport implements ToModel
     */
     public function model(array $row)
     {
+        //row variable represents the columns which the column names will be applied to
         return new result([
             'course_name'=>$row[0],
             'course_code'=>$row[1],

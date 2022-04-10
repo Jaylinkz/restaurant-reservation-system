@@ -45,7 +45,7 @@ class LecturersController extends Controller
         $new->employee_id = $request->employee_id;
         $new->role = '2';
         $new->save();
-        return redirect()->back();
+        return redirect()->back()->withStatus('Lecturer added successfully');
     }
 
     /**

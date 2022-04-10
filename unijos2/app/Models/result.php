@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class result extends Model
 {
     use HasFactory;
+    //declares the listed feilds as fiilable
 protected $fillable =(['id','course_name',
 'course_code',
 'semester',
@@ -17,8 +18,9 @@ protected $fillable =(['id','course_name',
 'CA',
 'Exam_score',
 'grade']);
+//relationship declearation between users and results
     public function users(){
-        return $this->belongsTo(User::class,'results');
+        return $this->belongsTo(User::class,'results_users');
     }
 }
 

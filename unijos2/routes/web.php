@@ -41,8 +41,8 @@ route::resource('lecturers',LecturersController::class);
 });
 route::resource('students',StudentController::class);
 Route::controller(ResultController::class)->group(function(){
-    Route::get('results', 'fileexport');
-    Route::get('resultsview', 'fileimport');
+    Route::get('results', 'fileexport')->middleware('lecturer');
+    Route::get('resultsview', 'fileimport')->middleware('student');
     Route::get('results-export', 'export')->name('results.export');
     Route::post('results-import', 'import')->name('results.import');
 });

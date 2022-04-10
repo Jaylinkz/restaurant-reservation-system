@@ -18,6 +18,7 @@ class StudentController extends Controller
     }
     public function index()
     {
+        //returns all users where role is ==0
         $users = User::where('role','0');
         return view('Admin.student',compact('users'));  //
     }

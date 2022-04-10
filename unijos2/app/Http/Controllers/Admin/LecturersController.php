@@ -16,8 +16,8 @@ class LecturersController extends Controller
      */
     public function index()
     {
-      $users = User::Where('role','2')->get();
-      return view('Admin.lecturers',compact('users'));  //
+      $users = User::all();//Where('role','2')->get();
+      return view('Admin.admin',compact('users'));  //
     }
 
     /**
@@ -38,14 +38,16 @@ class LecturersController extends Controller
      */
     public function store(LecturerStoreRequest $request)
     {
+        //addintion of lecturers
         $new = new User;
         $new->name = $request->name;
         $new->email = $request->email;
         $new->password = $request->password;
         $new->employee_id = $request->employee_id;
+        //default role id for all lecturers
         $new->role = '2';
         $new->save();
-        return redirect()->back()->withStatus('Lecturer added successfully');
+        return back()->withStatus('Lecturer added successfully');
     }
 
     /**
@@ -67,7 +69,8 @@ class LecturersController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = User::find($id);
+      return view('Admin.edit',compact('user')); //
     }
 
     /**
@@ -78,7 +81,17 @@ class LecturersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    { 
+        $lecturer = User::find($id);
+        $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required'],
+        'employee_id' => ['required', 'max:15', 'unique:users'], 
+        ]);
+        $input = $request->all();
+        $lecturer -> update($input);
+        return back()->withStatus('Lecturer added successfully');
         //
     }
 
@@ -90,6 +103,7 @@ class LecturersController extends Controller
      */
     public function destroy($id)
     {
-        //
+      User::destroy($id);
+      return back()->withStatus('User removed successfully');  //
     }
 }

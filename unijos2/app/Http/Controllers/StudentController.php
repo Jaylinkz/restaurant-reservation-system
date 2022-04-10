@@ -19,8 +19,10 @@ class StudentController extends Controller
     public function index()
     {
         //returns all users where role is ==0
-        $users = User::where('role','0');
-        return view('Admin.student',compact('users'));  //
+        //
+        $role = '0';
+        $users = User::where('role',$role);
+        return view('ManageStudents.Students',compact('users'));
     }
 
     /**
@@ -30,7 +32,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+       return view('ManageStudents.create') ;//
     }
 
     /**
@@ -41,7 +43,13 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $new = new User;
+        $new->name = $request->name;
+        $new->email = $request->email;
+        $new->password = $request->password;
+        $new->matric_no = $request->matric_no;
+        $new->save();
+        return back()->withStatus('Lecturer added successfully'); //
     }
 
     /**
@@ -63,7 +71,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = find($id);
+      return view('Admin.ManageStudents.edit',compact('user'));  //
     }
 
     /**
@@ -75,7 +84,9 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = User::find($id);
+        $input = $request->all();
+        $student->update($input);
     }
 
     /**
@@ -86,6 +97,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $del = User::destroy($id);
+       return back()->withStatus('student deleted successfully'); //
     }
 }

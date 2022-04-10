@@ -19,6 +19,7 @@ protected $fillable =(['id','course_name',
 'Exam_score',
 'grade']);
 //relationship declearation between users and results
+//a result belongs to only one user
     public function users(){
         return $this->belongsTo(User::class,'results_users');
     }

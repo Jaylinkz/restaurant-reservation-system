@@ -16,7 +16,8 @@ class student
      */
     public function handle(Request $request, Closure $next)
     {
-     if(auth()->user()->role !='0'){
+        //ensures that only lecturers can access result upload page
+     if(auth()->user()->role !='2'){
          abort(403);
      }
         return $next($request);

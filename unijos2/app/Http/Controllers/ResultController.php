@@ -15,7 +15,7 @@ class ResultController extends Controller
  public function fileexport(){
     //$num = Auth::user()->matric_no;Where('matric_no',$num)
      $users = result::get();
-     return view('Student.results',compact('users'));
+     return view('Student.student',compact('users'));
  }   
 
  public function fileimport()

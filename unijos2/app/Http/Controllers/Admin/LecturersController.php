@@ -16,7 +16,8 @@ class LecturersController extends Controller
      */
     public function index()
     {
-      $users = User::all();//Where('role','2')->get();
+      $role = '2';
+      $users = User::where('role',$role)->get();
       return view('Admin.admin',compact('users'));  //
     }
 

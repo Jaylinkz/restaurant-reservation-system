@@ -121,8 +121,9 @@
            
   <div class="container-fluid py-4">
     <div class ="flex  m-2 p-2">
-      <a href ="{{route('students.create')}}"
-     class="px-4 py-2   text-gray-700 bg-white  dark:text-gray-200 dark:bg-gray-800 rounded-lg">Add student</a>
+      <a href="{{ route('students.create') }}" class="btn btn-success btn-sm" title="Add New Student">
+        <i class="fa fa-plus" aria-hidden="true"></i> Add Student
+    </a>
   </div>
   <div class="table-responsive">
     <table class="table">
@@ -136,7 +137,7 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($users as $user)
+        @foreach($userss as $user)
         
         <tr>
            <td>{{$user->name}}</td>

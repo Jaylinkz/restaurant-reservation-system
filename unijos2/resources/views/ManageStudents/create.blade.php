@@ -42,7 +42,7 @@
                           <input type="text" id="password"  name="password" class="block w-full  appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" required/>
                         </div>
                       <div class="mt-6 p-4">
-                      <button type ="submit" class="px-4 py-2 text-gray-700 bg-white  dark:text-gray-200 dark:bg-gray-800 rounded-lg">ADD</button>
+                      <button type ="submit" class="px-4 py-2 text-gray-700 bg-white btn btn-success btn-sm dark:text-gray-200 dark:bg-gray-800 rounded-lg">ADD</button>
                       </div>
                     </form>
                   </div>

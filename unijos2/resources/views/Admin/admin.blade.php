@@ -124,8 +124,9 @@
          
 <div class="container-fluid py-4">
   <div class ="flex  m-2 p-2">
-    <a href ="{{route('lecturers.create')}}"
-   class="px-4 py-2   text-gray-700 bg-white  dark:text-gray-200 dark:bg-gray-800 rounded-lg">Add lecturer</a>
+    <a href="{{ route('lecturers.create') }}" class="btn btn-success btn-sm" title="Add New Student">
+      <i class="fa fa-plus" aria-hidden="true"></i> Add Lecturer
+  </a>
 </div>
 <div class="table-responsive">
   <table class="table">

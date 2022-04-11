@@ -21,7 +21,7 @@ class StudentController extends Controller
         //returns all users where role is ==0
         //
         $role = '0';
-        $users = User::where('role',$role);
+        $users = User::where('role',$role)->get();
         return view('ManageStudents.Students',compact('users'));
     }
 

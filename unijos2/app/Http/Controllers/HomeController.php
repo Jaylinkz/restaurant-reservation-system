@@ -13,7 +13,10 @@ class HomeController extends Controller
 {
   public function index()
   {
-    $users = User::all();
+    $roless = '2';
+    $users = User::where('role',$roless)->get();
+    $rolesss = '0';
+    $userss = User::where('role',$rolesss)->get();
     $role=Auth::user()->role;
     $mat_no = Auth::user()->matric_no;
     //reditrects to admin view if login attempt is from admin
@@ -23,7 +26,7 @@ class HomeController extends Controller
     //redirects to lecturers view if login attempt is from a lecturer
     
     if($role=='2'){
-        return view('Lecturer.seller',compact('users'));
+        return view('Lecturer.home',compact('userss'));
     }
       //redirects to students view if login attempt is from a student
     else

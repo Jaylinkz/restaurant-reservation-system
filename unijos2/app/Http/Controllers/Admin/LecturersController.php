@@ -43,7 +43,7 @@ class LecturersController extends Controller
         $new = new User;
         $new->name = $request->name;
         $new->email = $request->email;
-        $new->password = $request->password;
+        $new->password = bcrypt($request->password);
         $new->employee_id = $request->employee_id;
         //default role id for all lecturers
         $new->role = '2';

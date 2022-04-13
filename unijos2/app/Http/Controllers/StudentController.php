@@ -46,7 +46,7 @@ class StudentController extends Controller
         $new = new User;
         $new->name = $request->name;
         $new->email = $request->email;
-        $new->password = $request->password;
+        $new->password = bcrypt($request->password);
         $new->matric_no = $request->matric_no;
         $new->save();
         return back()->withStatus('Lecturer added successfully'); //

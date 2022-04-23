@@ -29,7 +29,8 @@ route::get('/menus',[FrontendMenuController::class,'index'])->name('menus.index'
 route::get('/reservation/step-one',[FrontendReservationController::class,'stepOne'])->name('reservations.step.one');
 route::post('/reservation/step-one',[FrontendReservationController::class,'storeStepOne'])->name('reservations.store.step.one');
 route::get('/reservation/step-two',[FrontendReservationController::class,'stepTwo'])->name('reservations.step.two');
-route::get('/reservation/step-two',[FrontendReservationController::class,'storeStepTwo'])->name('reservations.store.step.two');
+route::post('/reservation/step-two',[FrontendReservationController::class,'storeStepTwo'])->name('reservations.store.step.two');
+route::get('thankyou',[WelcomeController::class,'thankyou'])->name('thankyou');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

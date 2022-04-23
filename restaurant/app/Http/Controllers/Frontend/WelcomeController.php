@@ -12,4 +12,8 @@ public function index()
     $specials = category::where('name','specials')->first();
     return view('welcome',compact('specials'));
 }
+public function thankyou()
+{
+    return view('reservations.thankyou');
+}
 }
